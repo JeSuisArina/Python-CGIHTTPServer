@@ -1,7 +1,12 @@
 #!C:/Users/Арина/AppData/Local/Programs/Python/Python37/python
 
-a = [1, 2, 78]
-sm = sum(a)
 print("Content-type:text/html\n\n")
 print('<title>Сумма</title>')
-print(a[0], "+", a[1], "+", a[2], "=", sm)
+def a(numb):
+	
+   if len(numb) == 1:
+        return numb[0]
+   else:
+        return numb[0] + a(numb[1:])
+
+print(a([4, 8, 15, 16, 23, 42]))
