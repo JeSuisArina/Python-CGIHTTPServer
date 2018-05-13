@@ -2,11 +2,7 @@
 
 print("Content-type:text/html\n\n")
 print('<title>Сумма</title>')
-def a(numb):
-	
-   if len(numb) == 1:
-        return numb[0]
-   else:
-        return numb[0] + a(numb[1:])
-
-print(a([4, 8, 15, 16, 23, 42]))
+a = [4, 8, 15, 16, 23, 42]
+for i in range(len(a)-1):
+	print(a[i], '+')
+print(a[-1], '=', sum(a))  
