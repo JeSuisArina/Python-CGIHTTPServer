@@ -1,8 +1,11 @@
 #!C:/Users/Арина/AppData/Local/Programs/Python/Python37/python
 
+import cgi
+
 print("Content-type:text/html\n\n")
 print('<title>Сумма</title>')
-a = []
+form = cgi.FieldStorage()
+a = form.getlist('num', 0)
 if a:
 	for i in range(len(a)-1):
 		print(a[i], '+')
