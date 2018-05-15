@@ -1,4 +1,4 @@
-#!C:/Users/Арина/AppData/Local/Programs/Python/Python37/python
+#!usr/bin/env python3
 
 import cgi
 
