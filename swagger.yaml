@@ -1,0 +1,248 @@
+swagger: "2.0"
+host: "localhost:8000"
+basePath: "/cgi-bin/cgicalc.py"
+info:
+  title: "Calculator"
+  description: "Simple calculator"
+  version: "1.0.0"
+schemes:
+- "http"
+paths:
+  /amount:
+    post:
+      tags:
+      - "amount"
+      summary: "Find the sum of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "integer"
+        format: "int32"
+      - name: "operator"
+        in: "query"
+        description: "Set operation type as +"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    get:
+      tags:
+      - "amount"
+      summary: "Get the sum of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "result"
+        in: "query"
+        description: "Values that were summed up and the result"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value"
+  /difference:
+    post:
+      tags:
+      - "difference"
+      summary: "Find the difference of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "integer"
+        format: "int32"
+      - name: "operator"
+        in: "query"
+        description: "Set operation type as -"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    get:
+      tags:
+      - "difference"
+      summary: "Get the defference of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "result"
+        in: "query"
+        description: "Values of the expression and the result"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value"
+  /multiplication:
+    post:
+      tags:
+      - "multiplication"
+      summary: "Find the multiplication of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "integer"
+        format: "int32"
+      - name: "operator"
+        in: "query"
+        description: "Set operation type as *"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    get:
+      tags:
+      - "multiplication"
+      summary: "Get the multiplication of numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "result"
+        in: "query"
+        description: "Values of the expression and the result"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value"  
+  /division:
+    post:
+      tags:
+      - "division"
+      summary: "Find the result of dividing the numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "integer"
+        format: "int32"
+      - name: "operator"
+        in: "query"
+        description: "Set operation type as /"
+        required: true
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    get:
+      tags:
+      - "division"
+      summary: "Get the result of dividing the numbers"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "result"
+        in: "query"
+        description: "Values that were divided and the result"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value" 
+definitions:
+  Amount:
+    type: "object"
+    properties:
+      num:
+        type: "integer"
+        format: "int64"
+      operator:
+        type: "string"
+      result:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Amount"
+  Difference:
+    type: "object"
+    properties:
+      num:
+        type: "integer"
+        format: "int64"
+      operator:
+        type: "string"
+      result:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Difference"
+  Multiplication:
+    type: "object"
+    properties:
+      num:
+        type: "integer"
+        format: "int64"
+      operator:
+        type: "string"
+      result:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Multiplication"    
+  Division:
+    type: "object"
+    properties:
+      num:
+        type: "integer"
+        format: "int64"
+      operator:
+        type: "string"
+      result:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Division"
+  
