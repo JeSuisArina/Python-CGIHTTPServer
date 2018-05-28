@@ -30,29 +30,20 @@ paths:
         required: true
         type: "string"
       responses:
+        200:
+          description: "Input is ok"
+          content:
+            application/json:
+              schema: 
+                type: "array"
+                items:
+                  num: 
+                    type: "integer"
+                    description: "Values that were summed up and the result"
+                  operator:
+                    type: "string"
         405:
           description: "Invalid input"
-    get:
-      tags:
-      - "amount"
-      summary: "Get the sum of numbers"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "result"
-        in: "query"
-        description: "Values that were summed up and the result"
-        required: true
-        type: "array"
-        items:
-          type: "string"
-      responses:
-        200:
-          description: "successful operation"
-        400:
-          description: "Invalid status value"
   /difference:
     post:
       tags:
@@ -75,29 +66,20 @@ paths:
         required: true
         type: "string"
       responses:
+        200:
+          description: "Input is ok"
+          content:
+            application/json:
+              schema: 
+                type: "array"
+                items:
+                  num: 
+                    type: "integer"
+                    description: "Values of the expression and the result"
+                  operator:
+                    type: "string"
         405:
           description: "Invalid input"
-    get:
-      tags:
-      - "difference"
-      summary: "Get the defference of numbers"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "result"
-        in: "query"
-        description: "Values of the expression and the result"
-        required: true
-        type: "array"
-        items:
-          type: "string"
-      responses:
-        200:
-          description: "successful operation"
-        400:
-          description: "Invalid status value"
   /multiplication:
     post:
       tags:
@@ -120,29 +102,20 @@ paths:
         required: true
         type: "string"
       responses:
+        200:
+          description: "Input is ok"
+          content:
+            application/json:
+              schema: 
+                type: "array"
+                items:
+                  num: 
+                    type: "integer"
+                    description: "Values of the expression and the result"
+                  operator:
+                    type: "string"
         405:
           description: "Invalid input"
-    get:
-      tags:
-      - "multiplication"
-      summary: "Get the multiplication of numbers"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "result"
-        in: "query"
-        description: "Values of the expression and the result"
-        required: true
-        type: "array"
-        items:
-          type: "string"
-      responses:
-        200:
-          description: "successful operation"
-        400:
-          description: "Invalid status value"  
   /division:
     post:
       tags:
@@ -165,29 +138,20 @@ paths:
         required: true
         type: "string"
       responses:
+        200:
+          description: "Input is ok"
+          content:
+            application/json:
+              schema: 
+                type: "array"
+                items:
+                  num: 
+                    type: "integer"
+                    description: "Values that were divided and the result"
+                  operator:
+                    type: "char"
         405:
           description: "Invalid input"
-    get:
-      tags:
-      - "division"
-      summary: "Get the result of dividing the numbers"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "result"
-        in: "query"
-        description: "Values that were divided and the result"
-        required: true
-        type: "array"
-        items:
-          type: "string"
-      responses:
-        200:
-          description: "successful operation"
-        400:
-          description: "Invalid status value" 
 definitions:
   Amount:
     type: "object"
