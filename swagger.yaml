@@ -24,24 +24,11 @@ paths:
         required: true
         type: "integer"
         format: "int32"
-      - name: "operator"
-        in: "query"
-        description: "Set operation type as +"
-        required: true
-        type: "string"
       responses:
         200:
           description: "Input is ok"
-          content:
-            application/json:
-              schema: 
-                type: "array"
-                items:
-                  num: 
-                    type: "integer"
-                    description: "Values that were summed up and the result"
-                  operator:
-                    type: "string"
+          schema: 
+            $ref: "#/definitions/Amount"
         405:
           description: "Invalid input"
   /difference:
@@ -60,24 +47,11 @@ paths:
         required: true
         type: "integer"
         format: "int32"
-      - name: "operator"
-        in: "query"
-        description: "Set operation type as -"
-        required: true
-        type: "string"
       responses:
         200:
           description: "Input is ok"
-          content:
-            application/json:
-              schema: 
-                type: "array"
-                items:
-                  num: 
-                    type: "integer"
-                    description: "Values of the expression and the result"
-                  operator:
-                    type: "string"
+          schema: 
+            $ref: "#/definitions/Difference"    
         405:
           description: "Invalid input"
   /multiplication:
@@ -96,24 +70,11 @@ paths:
         required: true
         type: "integer"
         format: "int32"
-      - name: "operator"
-        in: "query"
-        description: "Set operation type as *"
-        required: true
-        type: "string"
       responses:
         200:
           description: "Input is ok"
-          content:
-            application/json:
-              schema: 
-                type: "array"
-                items:
-                  num: 
-                    type: "integer"
-                    description: "Values of the expression and the result"
-                  operator:
-                    type: "string"
+          schema: 
+            $ref: "#/definitions/Multiplication"    
         405:
           description: "Invalid input"
   /division:
@@ -132,24 +93,11 @@ paths:
         required: true
         type: "integer"
         format: "int32"
-      - name: "operator"
-        in: "query"
-        description: "Set operation type as /"
-        required: true
-        type: "string"
       responses:
         200:
           description: "Input is ok"
-          content:
-            application/json:
-              schema: 
-                type: "array"
-                items:
-                  num: 
-                    type: "integer"
-                    description: "Values that were divided and the result"
-                  operator:
-                    type: "char"
+          schema: 
+            $ref: "#/definitions/Division"  
         405:
           description: "Invalid input"
 definitions:
@@ -159,54 +107,47 @@ definitions:
       num:
         type: "integer"
         format: "int64"
-      operator:
-        type: "string"
       result:
-        type: "array"
-        items:
-          type: "string"
-    xml:
-      name: "Amount"
+        type: "object"
+        properties:
+          num:
+            type: "integer"
+          operator:
+            type: "string"
   Difference:
     type: "object"
     properties:
       num:
         type: "integer"
-        format: "int64"
-      operator:
-        type: "string"
       result:
-        type: "array"
-        items:
-          type: "string"
-    xml:
-      name: "Difference"
+        type: "object"
+        properties:
+          num:
+            type: "integer"
+          operator:
+            type: "string"
   Multiplication:
     type: "object"
     properties:
       num:
         type: "integer"
-        format: "int64"
-      operator:
-        type: "string"
       result:
-        type: "array"
-        items:
-          type: "string"
-    xml:
-      name: "Multiplication"    
+        type: "object"
+        properties:
+          num:
+            type: "integer"
+          operator:
+            type: "string"   
   Division:
     type: "object"
     properties:
       num:
         type: "integer"
-        format: "int64"
-      operator:
-        type: "string"
       result:
-        type: "array"
-        items:
-          type: "string"
-    xml:
-      name: "Division"
+        type: "object"
+        properties:
+          num:
+            type: "integer"
+          operator:
+            type: "string"
   
