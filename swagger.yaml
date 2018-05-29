@@ -22,13 +22,14 @@ paths:
         in: "query"
         description: "Add a number to the expression"
         required: true
-        type: "integer"
-        format: "int32"
+        type: "array"
+        items:
+          type: "integer"
       responses:
         200:
           description: "Input is ok"
           schema: 
-            $ref: "#/definitions/Amount"
+            $ref: "#/definitions/Expression"
         405:
           description: "Invalid input"
   /difference:
@@ -45,13 +46,14 @@ paths:
         in: "query"
         description: "Add a number to the expression"
         required: true
-        type: "integer"
-        format: "int32"
+        type: "array"
+        items:
+          type: "integer"
       responses:
         200:
           description: "Input is ok"
           schema: 
-            $ref: "#/definitions/Difference"    
+            $ref: "#/definitions/Expression"    
         405:
           description: "Invalid input"
   /multiplication:
@@ -68,13 +70,14 @@ paths:
         in: "query"
         description: "Add a number to the expression"
         required: true
-        type: "integer"
-        format: "int32"
+        type: "array"
+        items:
+          type: "integer"
       responses:
         200:
           description: "Input is ok"
           schema: 
-            $ref: "#/definitions/Multiplication"    
+            $ref: "#/definitions/Expression"    
         405:
           description: "Invalid input"
   /division:
@@ -91,22 +94,24 @@ paths:
         in: "query"
         description: "Add a number to the expression"
         required: true
-        type: "integer"
-        format: "int32"
+        type: "array"
+        items:
+          type: "integer"
       responses:
         200:
           description: "Input is ok"
           schema: 
-            $ref: "#/definitions/Division"  
+            $ref: "#/definitions/Expression"  
         405:
           description: "Invalid input"
 definitions:
-  Amount:
+  Expression:
     type: "object"
     properties:
       num:
-        type: "integer"
-        format: "int64"
+        type: "array"
+        items:
+          type: "integer"
       result:
         type: "object"
         properties:
@@ -114,40 +119,3 @@ definitions:
             type: "integer"
           operator:
             type: "string"
-  Difference:
-    type: "object"
-    properties:
-      num:
-        type: "integer"
-      result:
-        type: "object"
-        properties:
-          num:
-            type: "integer"
-          operator:
-            type: "string"
-  Multiplication:
-    type: "object"
-    properties:
-      num:
-        type: "integer"
-      result:
-        type: "object"
-        properties:
-          num:
-            type: "integer"
-          operator:
-            type: "string"   
-  Division:
-    type: "object"
-    properties:
-      num:
-        type: "integer"
-      result:
-        type: "object"
-        properties:
-          num:
-            type: "integer"
-          operator:
-            type: "string"
-  
