@@ -1,0 +1,145 @@
+---
+swagger: "2.0"
+info:
+  description: "Simple calculator"
+  version: "1.0.0"
+  title: "Calculator"
+host: "localhost:8000"
+basePath: "/cgi-bin/cgicalc.py"
+schemes:
+- "http"
+paths:
+  /amount:
+    post:
+      tags:
+      - "amount"
+      summary: "Find the sum of numbers"
+      operationId: "amount_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "Input is ok"
+          schema:
+            $ref: "#/definitions/Expression"
+        405:
+          description: "Invalid input"
+      x-swagger-router-controller: "swagger_server.controllers.amount_controller"
+  /difference:
+    post:
+      tags:
+      - "difference"
+      summary: "Find the difference of numbers"
+      operationId: "difference_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "Input is ok"
+          schema:
+            $ref: "#/definitions/Expression"
+        405:
+          description: "Invalid input"
+      x-swagger-router-controller: "swagger_server.controllers.difference_controller"
+  /multiplication:
+    post:
+      tags:
+      - "multiplication"
+      summary: "Find the multiplication of numbers"
+      operationId: "multiplication_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "Input is ok"
+          schema:
+            $ref: "#/definitions/Expression"
+        405:
+          description: "Invalid input"
+      x-swagger-router-controller: "swagger_server.controllers.multiplication_controller"
+  /division:
+    post:
+      tags:
+      - "division"
+      summary: "Find the result of dividing the numbers"
+      operationId: "division_post"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "num"
+        in: "query"
+        description: "Add a number to the expression"
+        required: true
+        type: "array"
+        items:
+          type: "integer"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "Input is ok"
+          schema:
+            $ref: "#/definitions/Expression"
+        405:
+          description: "Invalid input"
+      x-swagger-router-controller: "swagger_server.controllers.division_controller"
+definitions:
+  Expression:
+    type: "object"
+    properties:
+      num:
+        type: "array"
+        items:
+          type: "integer"
+      result:
+        $ref: "#/definitions/Expression_result"
+    example:
+      result:
+        num: 6
+        operator: "operator"
+      num:
+      - 0
+      - 0
+  Expression_result:
+    properties:
+      num:
+        type: "integer"
+      operator:
+        type: "string"
+    example:
+      num: 6
+      operator: "operator"
